@@ -1,33 +1,78 @@
-# DAMO-610-6
-Group Assignment - Opertion Analytics - LP assignment -GROUP (DAMO-610-6) - 2
+DAMO-610-6
 
-Optimizing Public Bus Network Scheduling - GitHub Repository README
+Group Assignment - Operations Analytics (DAMO-610-6)
+
+Project Title: Optimizing Public Bus Network Scheduling
+
 📘 Project Overview
-This repository contains the Python implementation of the project titled 'Optimizing Public Bus Network Scheduling', developed as part of the Operations Analytics course (DAMO-610-6) at the University of Niagara Falls. The project applies linear programming and constraint programming methods to optimize the assignment of buses across 93 urban routes and four shifts, serving a total daily demand of 640,000 passengers.
-🛠️ Models Implemented
-- **Original LP Model**: Based on the work of Berhan et al. (2014), this model minimizes the number of bus trips while satisfying demand, fleet size, and service constraints.
-- **Extended CP-SAT Model with Buffer**: Introduces a buffer-based constraint relaxation mechanism to address infeasibility and enhance flexibility in trip allocations.
-✨ Features
-- Demand and fleet constraints modeled using Google OR-Tools (LP and CP-SAT)
-- Includes both sample test data and complete synthetic dataset
-- Automated loop to find minimal buffer that restores model feasibility
-- Optimized assignment of two bus types (Type-I and Type-II)
-📂 Repository Structure
-```
-├── prototype_model.py            # Initial test model using sample data
-├── full_model.py                 # Original model using full dataset
-├── extended_model_with_buffer.py# Enhanced CP-SAT model with buffer flexibility
-├── README.md                     # Project documentation
-└── /data                         # Input files (if any)
-```
-🚀 How to Run
-1. Clone the repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run the desired model script using Python 3.10+ (e.g., `python extended_model_with_buffer.py`)
-👥 Contributions
-- **Nelson Benitz** – Lead author of the initial models and responsible for implementing the original LP formulation based on the referenced academic article.
-- **Fabio dos Santos Prumucena** – Author of the extended model with buffer flexibility, responsible for enhancing feasibility, revising and commenting on the initial scripts, and preparing the final documentation.
-- **Gustavo Paula** – Provided research support and peer-reviewed the implementations and documentation to ensure academic quality and coherence.
-📄 License
-This project is released for academic purposes only. Please cite the source paper and this repository if using the content.
 
+This repository contains the Python implementation of the project titled Optimizing Public Bus Network Scheduling, developed as part of the Operations Analytics course (DAMO-610-6) at the University of Niagara Falls. The project explores linear programming techniques to optimize the allocation of buses across 93 urban routes and four daily shifts, addressing a total daily demand of approximately 640,000 passengers.
+
+🛠️ Models Implemented
+
+Filename
+
+Corresponding Model in the Report
+
+Description
+
+Berhan_bus_original_small.py
+
+Small-Scale Prototype (Original Model)
+
+A faithful replication of the Berhan et al. (2014) model on a small dataset.
+
+Berhan_bus_extendedl_small.py
+
+Small-Scale Prototype (Extended Model)
+
+Adds a third bus type to test feasibility improvements at small scale.
+
+Berhan_bus_original_full.py
+
+Full Model (Original)
+
+Applies the original model to all 93 routes using imputed data – infeasible.
+
+Berhan_bus_extended_full.py
+
+Full Model (Extended)
+
+Adds the third bus type to the full dataset – still infeasible.
+
+✨ Features
+
+Demand and fleet constraints modeled using Google OR-Tools (Linear Solver)
+
+Models include demand fulfillment, trip factor, shift coverage, and proportional allocation constraints
+
+Includes both sample test data and full synthetic dataset for experimentation
+
+Models aim to minimize total trips while meeting operational constraints
+
+📂 Repository Structure
+
+├── Berhan_bus_original_small.py     # Original model on reduced dataset (8 routes)
+├── Berhan_bus_extendedl_small.py    # Extended model with third bus type on 6 routes
+├── Berhan_bus_original_full.py      # Full original model (93 routes) – infeasible
+├── Berhan_bus_extended_full.py      # Full extended model (93 routes) – still infeasible
+├── README.md                        # Project documentation
+└── /data                            # Input files and data sources (if applicable)
+
+🚀 How to Run
+
+Clone the repository
+
+Install dependencies: pip install -r requirements.txt
+
+Run the desired script using Python 3.10+:
+
+python Berhan_bus_original_small.py
+
+👥 Contributors
+
+Nelson Benitz 
+
+Fabio dos Santos Prumucena 
+
+Gustavo Paula
